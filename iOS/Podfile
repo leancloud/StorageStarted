@@ -1,0 +1,5 @@
+platform :ios, "8.0"
+
+target 'StorageStarted' do
+  pod 'AVOSCloud', '~> 3.4.1-beta.1'
+end
