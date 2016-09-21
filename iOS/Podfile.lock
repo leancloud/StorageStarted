@@ -1,10 +1,10 @@
 PODS:
-  - AVOSCloud (3.4.1-beta.1)
+  - AVOSCloud (3.4.0)
 
 DEPENDENCIES:
-  - AVOSCloud (~> 3.4.1-beta.1)
+  - AVOSCloud (~> 3.4.0)
 
 SPEC CHECKSUMS:
-  AVOSCloud: 9288a23c85e74a0703793a866561fb00bb914d7b
+  AVOSCloud: 771c8d77bc9b9f2cc8ac2eb4b58eaf368337ac95
 
 COCOAPODS: 0.39.0

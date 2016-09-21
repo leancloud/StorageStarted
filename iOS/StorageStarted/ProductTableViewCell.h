@@ -1,5 +1,5 @@
 //
-//  GoodsTableViewCell.h
+//  ProductTableViewCell.h
 //  StorageStarted
 //
 //  Created by cuiyiran on 16/9/18.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GoodsTableViewCell : UITableViewCell
+@interface ProductTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nickname;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *releaseDate;
-@property (weak, nonatomic) IBOutlet UIImageView *goodsImage;
-@property (weak, nonatomic) IBOutlet UILabel *goodsTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *productTitle;
 
 @end

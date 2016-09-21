@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initUI];
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,7 +29,7 @@
 }
 
 
-- (void)initUI {
+- (void)setupUI {
   self.title = @"注册";
 }
 
@@ -46,7 +46,7 @@
         user.email = email;
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                [self performSegueWithIdentifier:@"fromSignUpToGoods" sender:nil];
+                [self performSegueWithIdentifier:@"fromSignUpToProducts" sender:nil];
             } else {
                 NSLog(@"注册失败 %@", error);
             }

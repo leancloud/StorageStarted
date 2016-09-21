@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  LoginViewController.m
 //  StorageStarted
 //
 //  Created by cuiyiran on 16/9/14.
@@ -38,7 +38,7 @@
             if (error) {
                 NSLog(@"登录失败 %@", error);
             } else {
-                [self performSegueWithIdentifier:@"fromLoginToGoods" sender:nil];
+                [self performSegueWithIdentifier:@"fromLoginToProducts" sender:nil];
             }
         }];
     }

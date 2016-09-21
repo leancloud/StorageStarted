@@ -1,14 +1,14 @@
 //
-//  GoodsTableViewCell.m
+//  ProductTableViewCell.m
 //  StorageStarted
 //
 //  Created by cuiyiran on 16/9/18.
 //  Copyright © 2016年 cuiyiran. All rights reserved.
 //
 
-#import "GoodsTableViewCell.h"
+#import "ProductTableViewCell.h"
 
-@implementation GoodsTableViewCell
+@implementation ProductTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

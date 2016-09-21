@@ -1,25 +1,26 @@
 //
-//  GoodsListTableViewController.m
+//  ProductsListTableViewController.m
 //  
 //
 //  Created by cuiyiran on 16/9/18.
 //
 //
 
-#import "GoodsListTableViewController.h"
-#import "NewGoodsViewController.h"
-#import "GoodsDetailViewController.h"
+#import "ProductsListTableViewController.h"
+#import "NewProductViewController.h"
+#import "ProductDetailViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
-#import "GoodsTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "ProductTableViewCell.h"
 
-@interface GoodsListTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (strong, nonatomic) NSArray *goods;
+@interface ProductsListTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) NSArray *products;
 - (IBAction)releaseButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)logoutButtonPressed:(id)sender;
 
 @end
 
-@implementation GoodsListTableViewController
+@implementation ProductsListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +29,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self initData];
+    [self setupData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,38 +44,36 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.goods count];;
+    return [self.products count];;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GoodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"goodsCell" forIndexPath:indexPath];
-    AVObject *goods = self.goods[indexPath.row];
-    AVUser *owner =[goods objectForKey:@"owner"];
+    ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell" forIndexPath:indexPath];
+    AVObject *product = self.products[indexPath.row];
+    AVUser *owner =[product objectForKey:@"owner"];
     
     cell.nickname.text = owner.username;
-    cell.price.text = [NSString stringWithFormat:@"¥ %@",[goods objectForKey:@"price"]];
+    cell.price.text = [NSString stringWithFormat:@"¥ %@",[product objectForKey:@"price"]];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    cell.releaseDate.text = [dateFormatter stringFromDate:goods.createdAt];
+    cell.releaseDate.text = [dateFormatter stringFromDate:product.createdAt];
     
-    cell.goodsTitle.text = [goods objectForKey:@"title"];
+    cell.productTitle.text = [product objectForKey:@"title"];
     
-    // LeanCloud - 获取图片缩略图
-    // https://leancloud.cn/docs/leanstorage_guide-ios.html#图像缩略图
-    NSString *imageUrl = [goods objectForKey:@"imageUrl"];
-    AVFile *file = [AVFile fileWithURL:imageUrl];
-    [file getThumbnail:NO width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
-        cell.goodsImage.image = image;
+    // 获取图片 url
+    AVFile *file = [product objectForKey:@"image"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        UIImage *image = [UIImage imageWithData:data];
+        cell.productImage.image = image;
     }];
-    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AVObject *selectedGoods = self.goods[indexPath.row];
-    [self performSegueWithIdentifier:@"toDetailView" sender:selectedGoods];
+    AVObject *selectedProduct = self.products[indexPath.row];
+    [self performSegueWithIdentifier:@"toDetailView" sender:selectedProduct];
 }
 
 
@@ -82,13 +81,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString: @"toRelaseView"]) {
         UINavigationController *navigationController = [segue destinationViewController];
-        NewGoodsViewController *vc = (NewGoodsViewController *) [navigationController topViewController];
+        NewProductViewController *vc = (NewProductViewController *) [navigationController topViewController];
         UIImage *image = (UIImage *) sender;
         vc.selectedImage = image;
     } else if ([[segue identifier] isEqualToString: @"toDetailView"]) {
-        GoodsDetailViewController *vc = [segue destinationViewController];
-        AVObject *goods = (AVObject *) sender;
-        vc.goods = goods;
+        ProductDetailViewController *vc = [segue destinationViewController];
+        AVObject *product = (AVObject *) sender;
+        vc.product = product;
     }
 }
 
@@ -102,15 +101,18 @@
 }
 
 #pragma mark - custom methods
-- (void) initData {
+- (void) setupData {
     // LeanCloud - 查询 - 获取商品列表
     // https://leancloud.cn/docs/leanstorage_guide-ios.html#查询
-    AVQuery *query = [AVQuery queryWithClassName:@"Goods"];
+    AVQuery *query = [AVQuery queryWithClassName:@"Product"];
     [query orderByDescending:@"createdAt"];
+    // owner 为 Pointer，指向 _User 表
     [query includeKey:@"owner"];
+    // image 为 File
+    [query includeKey:@"image"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            self.goods = objects;
+            self.products = objects;
             [self.tableView reloadData];
         }
     }];
