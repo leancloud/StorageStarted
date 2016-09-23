@@ -7,7 +7,6 @@
 //
 
 #import "ProductDetailViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ProductDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
