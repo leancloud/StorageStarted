@@ -10,7 +10,6 @@
 #import "NewProductViewController.h"
 #import "ProductDetailViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "ProductTableViewCell.h"
 
 @interface ProductsListTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
