@@ -90,8 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
       showProgress(true);
 
       AVUser user = new AVUser();// 新建 AVUser 对象实例
-      user.setPassword(mUsernameView.getText().toString());// 设置用户名
-      user.setUsername(mPasswordView.getText().toString());// 设置密码
+      user.setPassword(username);// 设置用户名
+      user.setUsername(password);// 设置密码
       user.signUpInBackground(new SignUpCallback() {
         @Override
         public void done(AVException e) {
