@@ -1,13 +1,5 @@
 var Product = AV.Object.extend('Product');
 
-function isCurrentUser() {
-  var currentUser = AV.User.current();
-  if (currentUser) {
-    return true;
-  }
-  return false;
-};
-
 function releaseNewProduct() {
   var title = $('#inputTitle').val();
   var price = parseFloat($('#inputPrice').val());
@@ -34,7 +26,7 @@ function releaseNewProduct() {
   product.save().then(function() {
     window.location.href = "./../products-list/products-list.html";
   }, function(error) {
-    console.log(error);
+    alert(JSON.stringify(error));
   });
 };
 
