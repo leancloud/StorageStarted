@@ -12,7 +12,7 @@ public class GettingStartedApp extends Application {
   @Override
   public void onCreate() {
     super.onCreate();
-    AVOSCloud.initialize(this,"你的 App ID", "你的 App Key");
+    AVOSCloud.initialize(this,"OLoj899IwHYi787ClrImlr3k-gzGzoHsz", "gkz35mRTqTE2aqwp7dEr5uEE");
     AVOSCloud.setDebugLogEnabled(true);
   }
 }
