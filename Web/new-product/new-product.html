@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>StorageStarted</title>
+    <meta name="description" content="JavaScript 存储入门 Demo">
+    <!-- LeanCloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="./../header.css" rel="stylesheet">
+    <link href="new-product.css" rel="stylesheet">
+    <script type="text/javascript" src="./../initLeanCloud.js"></script>
+    <script type="text/javascript" src="./../reuseMethods.js"></script>
+    <script type="text/javascript" src="new-product.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted">宝贝出售</h3>
+      </div>
+
+      <form class="new-product">
+        <h2 class="new-product-heading">发布一个新商品</h2>
+        <label for="product-title" class="sr-only">商品名称</label>
+        <input type="title" id="inputTitle" class="form-control" placeholder="商品名称" required autofocus>
+        <label for="inputPrice" class="sr-only">价格</label>
+        <input type="price" id="inputPrice" class="form-control" placeholder="价格" required>
+        <label for="inputDescription" class="sr-only">商品描述</label>
+        <textarea type="description" id="inputDescription" class="form-control" placeholder="商品描述" required></textarea>
+        <label for="inputFile" class="sr-only">上传图片</label>
+        <input type="file" id="inputFile" class="form-control" placeholder="文件" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">发布</button>
+      </form>
+    </div> <!-- /container -->
+
+  </body>
+</html>

@@ -1,0 +1,35 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #eee;
+}
+.new-product {
+  max-width: 430px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.new-product .new-product-heading,
+.new-product .checkbox {
+  margin-bottom: 10px;
+}
+.new-product .checkbox {
+  font-weight: normal;
+}
+.new-product .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.new-product .form-control:focus {
+  z-index: 2;
+}
+.new-product input {
+	margin-bottom: 10px;
+}
+.new-product textarea {
+	margin-bottom: 10px;
+}
