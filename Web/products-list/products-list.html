@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>StorageStarted</title>
+    <meta name="description" content="JavaScript 存储入门 Demo">
+    <!-- LeanCloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <!-- handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="./../header.css" rel="stylesheet">
+    <link href="products-list.css" rel="stylesheet">
+    <script type="text/javascript" src="./../initLeanCloud.js"></script>
+    <script type="text/javascript" src="./../reuseMethods.js"></script>
+    <script type="text/javascript" src="products-list.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav pull-right">
+            <li role="presentation"><a href="#" onclick="logout()">退出登录</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">宝贝出售</h3>
+      </div>
+      <div>
+        <a class="btn btn-primary new-product" href="./../new-product/new-product.html">发布一个新商品</a>
+      </div>
+      <div class="row products-detail">
+        <!-- Products list content -->
+        <script id="products-list" type="text/x-handlebars-template">
+          {{#each products}}
+          <div class="col-sm-6 col-md-4 product-detail">
+            <div class="thumbnail">
+              <img src={{productImageUrl}}>
+              <div class="caption">
+                <h3>{{{productTitle}}}</h3>
+                <p>{{{productDescription}}}</p>
+                <p>来自：{{{ownerUsername}}}</p>
+                <p>发布时间：{{{releaseTime}}}</p>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </script>
+      </div>
+    </div> <!-- /container -->
+
+  </body>
+</html>
