@@ -32,9 +32,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name_item_main"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:textSize="14sp"
                 android:text="title"
+                android:layout_toLeftOf="@+id/price_item_main"
+                android:layout_alignLeft="@+id/name_item_main"
                 android:textColor="@android:color/holo_blue_light"/>
 
             <TextView
