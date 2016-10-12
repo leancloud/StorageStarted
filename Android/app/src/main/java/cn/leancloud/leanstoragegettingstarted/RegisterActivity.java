@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         public void done(AVException e) {
           if (e == null) {
-            // 注册成功，把用户对象赋值给 AVUser.getCurrentUser()
+            // 注册成功，把用户对象赋值给当前用户 AVUser.getCurrentUser()
             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
             RegisterActivity.this.finish();
           } else {
