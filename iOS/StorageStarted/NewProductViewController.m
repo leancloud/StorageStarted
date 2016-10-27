@@ -32,6 +32,16 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [AVAnalytics beginLogPageView:@"PublishView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [AVAnalytics endLogPageView:@"PublishView"];
+}
+
 - (void) setupUI {
     self.imageView.image = self.selectedImage;
     self.descriptionTextView.delegate = self;

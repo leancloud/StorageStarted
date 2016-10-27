@@ -25,10 +25,15 @@
     [super viewDidLoad];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupData];
+    [AVAnalytics beginLogPageView:@"MainView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [AVAnalytics endLogPageView:@"MainView"];
 }
 
 - (void)didReceiveMemoryWarning {

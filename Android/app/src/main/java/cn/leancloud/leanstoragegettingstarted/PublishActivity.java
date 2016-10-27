@@ -18,6 +18,7 @@ import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
+import com.avos.avoscloud.AVAnalytics;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -135,5 +136,17 @@ public class PublishActivity extends AppCompatActivity {
       onBackPressed();
     }
     return super.onOptionsItemSelected(item);
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    AVAnalytics.onPause(this);
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    AVAnalytics.onResume(this);
   }
 }

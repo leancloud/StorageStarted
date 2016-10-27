@@ -33,6 +33,7 @@ dependencies {
 
     // LeanCloud 基础包
     compile ('cn.leancloud.android:avoscloud-sdk:v3.+')
+    compile ('cn.leancloud.android:avoscloud-statistics:v3.+')
 
     compile 'com.squareup.picasso:picasso:2.5.2'
 
