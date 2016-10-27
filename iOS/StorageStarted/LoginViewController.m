@@ -27,6 +27,15 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [AVAnalytics beginLogPageView:@"LoginView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [AVAnalytics endLogPageView:@"LoginView"];
+}
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
     NSString *username = self.usernameTextField.text;

@@ -28,6 +28,15 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [AVAnalytics beginLogPageView:@"SignUpView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [AVAnalytics endLogPageView:@"SignUpView"];
+}
 
 - (void)setupUI {
   self.title = @"注册";
