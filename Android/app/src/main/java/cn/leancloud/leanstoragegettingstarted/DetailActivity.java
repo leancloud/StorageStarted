@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.GetCallback;
+import com.avos.avoscloud.AVAnalytics;
 import com.squareup.picasso.Picasso;
 
 public class DetailActivity extends AppCompatActivity {
@@ -37,6 +38,18 @@ public class DetailActivity extends AppCompatActivity {
         Picasso.with(DetailActivity.this).load(avObject.getAVFile("image") == null ? "www" : avObject.getAVFile("image").getUrl()).into(mImage);
       }
     });
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    AVAnalytics.onPause(this);
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    AVAnalytics.onResume(this);
   }
 
   @Override

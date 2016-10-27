@@ -16,6 +16,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.AVAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,14 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onResume() {
     super.onResume();
+    AVAnalytics.onResume(this);
     initData();
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    AVAnalytics.onPause(this);
   }
 
   private void initData() {

@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
+import com.avos.avoscloud.AVAnalytics;
 
 public class LoginActivity extends AppCompatActivity {
   private AutoCompleteTextView mUsernameView;
@@ -165,6 +166,18 @@ public class LoginActivity extends AppCompatActivity {
       onBackPressed();
     }
     return super.onOptionsItemSelected(item);
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    AVAnalytics.onPause(this);
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    AVAnalytics.onResume(this);
   }
 }
 
