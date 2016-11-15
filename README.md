@@ -1,6 +1,6 @@
 # StorageStarted
 
-此 demo 与官方文档进行配套使用。
+此 demo 与官方文档配套进行使用。
 
 [查看 Android 文档](https://leancloud.cn/docs/leanstorage-started-android.html)
 
