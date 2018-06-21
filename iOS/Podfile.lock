@@ -1,23 +1,16 @@
 PODS:
-  - AVOSCloud (3.4.4)
-  - AVOSCloudCrashReporting (3.4.4):
-    - AVOSCloud (= 3.4.4)
-    - AVOSCloudCrashReporting/_ARC (= 3.4.4)
-    - AVOSCloudCrashReporting/_NOARC (= 3.4.4)
-  - AVOSCloudCrashReporting/_ARC (3.4.4):
-    - AVOSCloud (= 3.4.4)
-    - AVOSCloudCrashReporting/_NOARC (= 3.4.4)
-  - AVOSCloudCrashReporting/_NOARC (3.4.4):
-    - AVOSCloud (= 3.4.4)
+  - AVOSCloud (11.1.1)
 
 DEPENDENCIES:
-  - AVOSCloud (~> 3.4.0)
-  - AVOSCloudCrashReporting
+  - AVOSCloud (= 11.1.1)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AVOSCloud
 
 SPEC CHECKSUMS:
-  AVOSCloud: 50a81ba9fe043750592355d13589b108771f3724
-  AVOSCloudCrashReporting: b1e94cb0929b1f7b688d8c7995b248583af2b58d
+  AVOSCloud: 61c7cf3bfd211cc26af1634f4005c5c6ba087d11
 
-PODFILE CHECKSUM: a7663bc31e9c0d35ba07f6697af73c7060a85bc1
+PODFILE CHECKSUM: 5fa5370f82cc554716c1dcb997eb18ab1f6bef36
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.5.0
