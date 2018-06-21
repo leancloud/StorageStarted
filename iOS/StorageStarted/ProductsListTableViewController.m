@@ -50,8 +50,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.products count];;
 }
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell" forIndexPath:indexPath];
     AVObject *product = self.products[indexPath.row];
@@ -68,10 +66,11 @@
     
     // 获取图片 url
     AVFile *file = [product objectForKey:@"image"];
-    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        UIImage *image = [UIImage imageWithData:data];
+    [file downloadWithCompletionHandler:^(NSURL * _Nullable filePath, NSError * _Nullable error) {
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL: filePath]];
         cell.productImage.image = image;
     }];
+
     return cell;
 }
 

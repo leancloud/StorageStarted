@@ -58,11 +58,13 @@
     // 由于 LeanCloud 国内节点上传到了七牛，此处可以使用七牛的图片处理
     // 图片处理文档：http://developer.qiniu.com/code/v6/api/kodo-api/image/imageview2.html
     NSString *thumbUrl = [NSString stringWithFormat:@"%@?imageView2/2/w/%i", file.url, (int) self.imageView.frame.size.width];
-    AVFile *thumbfile = [AVFile fileWithURL:thumbUrl];
-    [thumbfile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        UIImage *image = [UIImage imageWithData:data];
+    AVFile *thumbfile = [AVFile fileWithRemoteURL:[NSURL URLWithString:thumbUrl]];
+    
+    [thumbfile downloadWithCompletionHandler:^(NSURL * _Nullable filePath, NSError * _Nullable error) {
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL: filePath]];
         self.imageView.image = image;
     }];
+
 }
 
 @end
