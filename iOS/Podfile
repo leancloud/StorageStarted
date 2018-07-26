@@ -1,5 +1,6 @@
 platform :ios, "8.0"
 
 target 'StorageStarted' do
-  pod 'AVOSCloud', '11.1.1'
+  pod 'AVOSCloud', '11.3.0'
+  pod 'SDWebImage'
 end
