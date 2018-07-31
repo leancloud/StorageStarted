@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private void initData() {
-    mList.clear();
     AVQuery<AVObject> avQuery = new AVQuery<>("Product");
     avQuery.orderByDescending("createdAt");
     avQuery.include("owner");
@@ -81,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void done(List<AVObject> list, AVException e) {
         if (e == null) {
+          mList.clear();
           mList.addAll(list);
           mRecyclerAdapter.notifyDataSetChanged();
         } else {
