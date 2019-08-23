@@ -19,10 +19,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVUser;
-import com.avos.avoscloud.LogInCallback;
-import com.avos.avoscloud.AVAnalytics;
+import cn.leancloud.AVUser;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class LoginActivity extends AppCompatActivity {
   private AutoCompleteTextView mUsernameView;
@@ -104,16 +103,24 @@ public class LoginActivity extends AppCompatActivity {
     } else {
       showProgress(true);
 
-      AVUser.logInInBackground(username, password, new LogInCallback<AVUser>() {
+      AVUser.logIn(username,password).subscribe(new Observer<AVUser>() {
         @Override
-        public void done(AVUser avUser, AVException e) {
-          if (e == null) {
-            LoginActivity.this.finish();
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-          } else {
-            showProgress(false);
-            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-          }
+        public void onSubscribe(Disposable d) {
+
+        }
+        @Override
+        public void onNext(AVUser avUser) {
+          LoginActivity.this.finish();
+          startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        }
+        @Override
+        public void onError(Throwable e) {
+          showProgress(false);
+          Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        public void onComplete() {
+
         }
       });
     }
@@ -168,16 +175,5 @@ public class LoginActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
-  @Override
-  protected void onPause() {
-    super.onPause();
-    AVAnalytics.onPause(this);
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    AVAnalytics.onResume(this);
-  }
 }
 
