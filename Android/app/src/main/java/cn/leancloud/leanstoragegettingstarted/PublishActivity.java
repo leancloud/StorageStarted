@@ -13,16 +13,16 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVUser;
-import com.avos.avoscloud.SaveCallback;
-import com.avos.avoscloud.AVAnalytics;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import cn.leancloud.AVFile;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVUser;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class PublishActivity extends AppCompatActivity {
 
@@ -89,19 +89,29 @@ public class PublishActivity extends AppCompatActivity {
         product.put("price", Integer.parseInt(mPriceEdit.getText().toString()));
         product.put("owner", AVUser.getCurrentUser());
         product.put("image", new AVFile("productPic", mImageBytes));
-        product.saveInBackground(new SaveCallback() {
+        product.saveInBackground().subscribe(new Observer<AVObject>() {
           @Override
-          public void done(AVException e) {
-            if (e == null) {
-              mProgerss.setVisibility(View.GONE);
-              PublishActivity.this.finish();
-            } else {
-              mProgerss.setVisibility(View.GONE);
-              Toast.makeText(PublishActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+          public void onSubscribe(Disposable d) {
+
+          }
+
+          @Override
+          public void onNext(AVObject avObject) {
+            mProgerss.setVisibility(View.GONE);
+            PublishActivity.this.finish();
+          }
+
+          @Override
+          public void onError(Throwable e) {
+            mProgerss.setVisibility(View.GONE);
+            Toast.makeText(PublishActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+          }
+
+          @Override
+          public void onComplete() {
+
           }
         });
-//        }, mImageUploadProgressCallback);
       }
     });
   }
@@ -136,17 +146,5 @@ public class PublishActivity extends AppCompatActivity {
       onBackPressed();
     }
     return super.onOptionsItemSelected(item);
-  }
-
-  @Override
-  protected void onPause() {
-    super.onPause();
-    AVAnalytics.onPause(this);
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    AVAnalytics.onResume(this);
   }
 }
