@@ -1,25 +1,24 @@
 // handlebars context
-var context = {
+const context = {
   products: []
 };
 
 function setupData() {
   // LeanCloud - 查询
-  // https://leancloud.cn/docs/leanstorage_guide-js.html#查询
-  var query = new AV.Query('Product');
-  query.include('owner');
-  query.include('image');
-  query.descending('createdAt');
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#hash860317
+  const query = db.class('Product').include('owner', 'image').orderBy('createdAt', 'desc');
   query.find().then(function (products) {
-    products.forEach(function(product) {
-      var productTitle = product.get('title');
-      var productDescription = product.get('description');
-      var releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' +  product.createdAt.getFullYear();
-      var ownerUsername = product.get('owner').get('username');
-      var productImage = product.get('image');
-      var productImageUrl;
+    products.forEach(function (product) {
+      const productTitle = product.data.title;
+      const productDescription = product.data.description;
+      const price = product.data.price;
+      const releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' +  product.createdAt.getFullYear();
+      const owner = product.data.owner;
+      const ownerUsername = owner ? owner.data.username : 'unknown';
+      const productImage = product.data.image;
+      let productImageUrl;
       if (productImage) {
-        productImageUrl = productImage.get('url');
+        productImageUrl = productImage.url;
       } else {
         productImageUrl = './../storage.png'
       }
@@ -28,29 +27,30 @@ function setupData() {
         productImageUrl,
         productTitle,
         productDescription,
+        price,
         ownerUsername,
         releaseTime
       });
     });
 
     // use handlebars to update html
-    var source = $("#products-list").html();
-    var template = Handlebars.compile(source);
-    var html = template(context);
+    const source = $("#products-list").html();
+    const template = Handlebars.compile(source);
+    const html = template(context);
     $('.products-detail').html(html);
 
-  }).catch(function(error) {
-    alert(JSON.stringify(error));
+  }).catch (function(error) {
+    alert(error.error);
   });
 };
 
 function logout() {
-  AV.User.logOut();
+  User.logOut();
   window.location.href = "./../login/login.html";
 };
 
 $(function() {
-  if (isCurrentUser()) {
+  if (User.current()) {
     setupData();
   } else {
     window.location.href = "./../login/login.html";
