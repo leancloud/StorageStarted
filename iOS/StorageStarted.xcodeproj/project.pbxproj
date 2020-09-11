@@ -340,7 +340,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-resources.sh",
 				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -349,7 +349,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CFF6B09444DF7C5C02ECA5A6 /* [CP] Check Pods Manifest.lock */ = {
