@@ -1,22 +1,20 @@
 PODS:
-  - AVOSCloud (11.3.0)
+  - AVOSCloud (12.3.0)
+DEPENDENCIES:
+  - AVOSCloud (= 12.3.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
 
-DEPENDENCIES:
-  - AVOSCloud (= 11.3.0)
-  - SDWebImage
-
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - AVOSCloud
     - SDWebImage
 
 SPEC CHECKSUMS:
-  AVOSCloud: 6b3711de627beb1a26232b496a2822d713e3b8d5
+  AVOSCloud: bed104accc6fc53c3d16c3f52c8dfdff02251898
+
+  PODFILE CHECKSUM: 2aaf6f719f82031a4fdeb03f672c239904c59dde
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: e4ae6af741586f21f3c268c6594876fcbf5d583e
-
-COCOAPODS: 1.5.0
+COCOAPODS: 1.9.3
