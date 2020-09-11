@@ -6,11 +6,11 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.GetCallback;
-import com.avos.avoscloud.AVAnalytics;
 import com.squareup.picasso.Picasso;
+
+import cn.leancloud.AVObject;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class DetailActivity extends AppCompatActivity {
   private TextView mName;
@@ -30,26 +30,24 @@ public class DetailActivity extends AppCompatActivity {
 
     String goodsObjectId = getIntent().getStringExtra("goodsObjectId");
     AVObject avObject = AVObject.createWithoutData("Product", goodsObjectId);
-    avObject.fetchInBackground("owner", new GetCallback<AVObject>() {
+    avObject.fetchInBackground("owner").subscribe(new Observer<AVObject>() {
       @Override
-      public void done(AVObject avObject, AVException e) {
-        mName.setText(avObject.getAVUser("owner") == null ? "" : avObject.getAVUser("owner").getUsername());
+      public void onSubscribe(Disposable d) {
+      }
+      @Override
+      public void onNext(AVObject avObject) {
+        mName.setText(avObject.getAVObject("owner") == null ? "" : avObject.getAVObject("owner").getString("username"));
         mDescription.setText(avObject.getString("description"));
         Picasso.with(DetailActivity.this).load(avObject.getAVFile("image") == null ? "www" : avObject.getAVFile("image").getUrl()).into(mImage);
       }
+      @Override
+      public void onError(Throwable e) {
+      }
+      @Override
+      public void onComplete() {
+
+      }
     });
-  }
-
-  @Override
-  protected void onPause() {
-    super.onPause();
-    AVAnalytics.onPause(this);
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    AVAnalytics.onResume(this);
   }
 
   @Override

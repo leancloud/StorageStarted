@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <AVOSCloud/AVOSCloud.h>
-
+#import "LCLoginViewController.h"
 
 #define APP_ID @"OLoj899IwHYi787ClrImlr3k-gzGzoHsz"
 #define APP_KEY @"gkz35mRTqTE2aqwp7dEr5uEE"
@@ -21,8 +21,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+   
+    //初始化 SDK
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
+    //开启调试日志
+    [AVOSCloud setAllLogsEnabled:YES];
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[LCLoginViewController alloc]init];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

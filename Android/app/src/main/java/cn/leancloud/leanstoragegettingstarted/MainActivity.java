@@ -11,15 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.AVUser;
-import com.avos.avoscloud.FindCallback;
-import com.avos.avoscloud.AVAnalytics;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.AVUser;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity {
   private RecyclerView mRecyclerView;
@@ -62,14 +61,12 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onResume() {
     super.onResume();
-    AVAnalytics.onResume(this);
     initData();
   }
 
   @Override
   protected void onPause() {
     super.onPause();
-    AVAnalytics.onPause(this);
   }
 
   private void initData() {
@@ -77,15 +74,26 @@ public class MainActivity extends AppCompatActivity {
     AVQuery<AVObject> avQuery = new AVQuery<>("Product");
     avQuery.orderByDescending("createdAt");
     avQuery.include("owner");
-    avQuery.findInBackground(new FindCallback<AVObject>() {
+    avQuery.findInBackground().subscribe(new Observer<List<AVObject>>() {
       @Override
-      public void done(List<AVObject> list, AVException e) {
-        if (e == null) {
-          mList.addAll(list);
-          mRecyclerAdapter.notifyDataSetChanged();
-        } else {
-          e.printStackTrace();
-        }
+      public void onSubscribe(Disposable d) {
+
+      }
+
+      @Override
+      public void onNext(List<AVObject> list) {
+        mList.addAll(list);
+        mRecyclerAdapter.notifyDataSetChanged();
+      }
+
+      @Override
+      public void onError(Throwable e) {
+
+      }
+
+      @Override
+      public void onComplete() {
+
       }
     });
   }
