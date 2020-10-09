@@ -16,7 +16,7 @@ public class GettingStartedApp extends Application {
     super.onCreate();
     //开启调试日志
     AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
-    AVOSCloud.initialize(this,"OLoj899IwHYi787ClrImlr3k-gzGzoHsz", "gkz35mRTqTE2aqwp7dEr5uEE");
+    AVOSCloud.initialize(this,"OLoj899IwHYi787ClrImlr3k-gzGzoHsz", "gkz35mRTqTE2aqwp7dEr5uEE","https://oloj899i.lc-cn-n1-shared.com");
 
   }
 }
