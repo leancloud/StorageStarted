@@ -1,38 +1,33 @@
-var Product = AV.Object.extend('Product');
-
 function releaseNewProduct() {
-  var title = $('#inputTitle').val();
-  var price = parseFloat($('#inputPrice').val());
-  var description = $('#inputDescription').val();
-  
   // LeanCloud - 当前用户
-  // https://leancloud.cn/docs/leanstorage_guide-js.html#当前用户
-  var currentUser = AV.User.current();
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#hash748191977
+  const currentUser = LC.User.current();
 
   // LeanCloud - 文件
-  // https://leancloud.cn/docs/leanstorage_guide-js.html#文件
-  var file = $('#inputFile')[0].files[0];
-  var name = file.name;
-  var avFile = new AV.File(name, file);
-  
-  // LeanCloud - 对象
-  // https://leancloud.cn/docs/leanstorage_guide-js.html#数据类型
-  var product = new Product();
-  product.set('title', title);
-  product.set('price', price);
-  product.set('description', description);
-  product.set('owner', AV.User.current());
-  product.set('image', avFile);
-  product.save().then(function() {
-    window.location.href = "./../products-list/products-list.html";
-  }, function(error) {
-    alert(JSON.stringify(error));
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#hash825935
+  const file = $("#inputFile")[0].files[0];
+  const name = file.name;
+  LC.File.upload(name, file).then((lcFile) => {
+    // LeanCloud - 对象
+    // https://leancloud.cn/docs/leanstorage_guide-js.html#hash799084270
+    LC.CLASS("Product")
+      .add({
+        title: $("#inputTitle").val(),
+        price: parseFloat($("#inputPrice").val()),
+        description: $("#inputDescription").val(),
+        owner: currentUser,
+        image: lcFile,
+      })
+      .then(() => {
+        window.location.href = "./../products-list/products-list.html";
+      })
+      .catch(({ error }) => alert(error));
   });
-};
+}
 
-$(function() {
-  if (isCurrentUser()) {
-    $(".new-product").on('submit', function(e) {
+$(function () {
+  if (LC.User.current()) {
+    $(".new-product").on("submit", function (e) {
       e.preventDefault();
       releaseNewProduct();
     });

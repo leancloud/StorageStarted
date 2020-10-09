@@ -5,16 +5,16 @@
     <title>StorageStarted</title>
     <meta name="description" content="JavaScript 存储入门 Demo">
     <!-- LeanCloud -->
-    <script src="https://unpkg.com/leancloud-storage/dist/av.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@5.0.0-beta.0/dist/browser/lc.min.js"></script>
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
+
     <!-- handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
@@ -22,7 +22,6 @@
     <link href="./../header.css" rel="stylesheet">
     <link href="products-list.css" rel="stylesheet">
     <script type="text/javascript" src="./../initLeanCloud.js"></script>
-    <script type="text/javascript" src="./../reuseMethods.js"></script>
     <script type="text/javascript" src="products-list.js"></script>
   </head>
   <body>
@@ -48,6 +47,7 @@
               <div class="caption">
                 <h3>{{{productTitle}}}</h3>
                 <p>{{{productDescription}}}</p>
+                <p>价格：{{{price}}}</p>
                 <p>来自：{{{ownerUsername}}}</p>
                 <p>发布时间：{{{releaseTime}}}</p>
               </div>
