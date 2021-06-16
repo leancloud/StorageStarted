@@ -18,9 +18,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import cn.leancloud.AVFile;
-import cn.leancloud.AVObject;
-import cn.leancloud.AVUser;
+import cn.leancloud.LCFile;
+import cn.leancloud.LCObject;
+import cn.leancloud.LCUser;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -83,20 +83,20 @@ public class PublishActivity extends AppCompatActivity {
           return;
         }
         mProgerss.setVisibility(View.VISIBLE);
-        AVObject product = new AVObject("Product");
+        LCObject product = new LCObject("Product");
         product.put("title", mTitleEdit.getText().toString());
         product.put("description", mDiscriptionEdit.getText().toString());
         product.put("price", Integer.parseInt(mPriceEdit.getText().toString()));
-        product.put("owner", AVUser.getCurrentUser());
-        product.put("image", new AVFile("productPic", mImageBytes));
-        product.saveInBackground().subscribe(new Observer<AVObject>() {
+        product.put("owner", LCUser.getCurrentUser());
+        product.put("image", new LCFile("productPic", mImageBytes));
+        product.saveInBackground().subscribe(new Observer<LCObject>() {
           @Override
           public void onSubscribe(Disposable d) {
 
           }
 
           @Override
-          public void onNext(AVObject avObject) {
+          public void onNext(LCObject avObject) {
             mProgerss.setVisibility(View.GONE);
             PublishActivity.this.finish();
           }

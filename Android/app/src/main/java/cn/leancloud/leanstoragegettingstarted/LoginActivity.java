@@ -19,7 +19,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import cn.leancloud.AVUser;
+
+import cn.leancloud.LCUser;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
 
-    if (AVUser.getCurrentUser() != null) {
+    if (LCUser.getCurrentUser() != null) {
       startActivity(new Intent(LoginActivity.this, MainActivity.class));
       LoginActivity.this.finish();
     }
@@ -103,13 +104,13 @@ public class LoginActivity extends AppCompatActivity {
     } else {
       showProgress(true);
 
-      AVUser.logIn(username,password).subscribe(new Observer<AVUser>() {
+      LCUser.logIn(username,password).subscribe(new Observer<LCUser>() {
         @Override
         public void onSubscribe(Disposable d) {
 
         }
         @Override
-        public void onNext(AVUser avUser) {
+        public void onNext(LCUser avUser) {
           LoginActivity.this.finish();
           startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
