@@ -14,16 +14,16 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.leancloud.AVObject;
-import cn.leancloud.AVQuery;
-import cn.leancloud.AVUser;
+import cn.leancloud.LCObject;
+import cn.leancloud.LCQuery;
+import cn.leancloud.LCUser;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity {
   private RecyclerView mRecyclerView;
   private MainRecyclerAdapter mRecyclerAdapter;
-  private List<AVObject> mList = new ArrayList<>();
+  private List<LCObject> mList = new ArrayList<>();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public boolean onMenuItemClick(MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
-          AVUser.getCurrentUser().logOut();
+          LCUser.getCurrentUser().logOut();
           startActivity(new Intent(MainActivity.this, LoginActivity.class));
           MainActivity.this.finish();
         }
@@ -71,17 +71,17 @@ public class MainActivity extends AppCompatActivity {
 
   private void initData() {
     mList.clear();
-    AVQuery<AVObject> avQuery = new AVQuery<>("Product");
+    LCQuery<LCObject> avQuery = new LCQuery<>("Product");
     avQuery.orderByDescending("createdAt");
     avQuery.include("owner");
-    avQuery.findInBackground().subscribe(new Observer<List<AVObject>>() {
+    avQuery.findInBackground().subscribe(new Observer<List<LCObject>>() {
       @Override
       public void onSubscribe(Disposable d) {
 
       }
 
       @Override
-      public void onNext(List<AVObject> list) {
+      public void onNext(List<LCObject> list) {
         mList.addAll(list);
         mRecyclerAdapter.notifyDataSetChanged();
       }

@@ -19,7 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import cn.leancloud.AVUser;
+import cn.leancloud.LCUser;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -89,17 +89,17 @@ public class RegisterActivity extends AppCompatActivity {
     } else {
       showProgress(true);
 
-      AVUser user = new AVUser();// 新建 AVUser 对象实例
+      LCUser user = new LCUser();// 新建 LCUser 对象实例
       user.setUsername(username);// 设置用户名
       user.setPassword(password);// 设置密码
-      user.signUpInBackground().subscribe(new Observer<AVUser>() {
+      user.signUpInBackground().subscribe(new Observer<LCUser>() {
         @Override
         public void onSubscribe(Disposable d) {
 
         }
         @Override
-        public void onNext(AVUser avUser) {
-          // 注册成功，把用户对象赋值给当前用户 AVUser.getCurrentUser()
+        public void onNext(LCUser avUser) {
+          // 注册成功，把用户对象赋值给当前用户 LCUser.getCurrentUser()
           startActivity(new Intent(RegisterActivity.this, MainActivity.class));
           RegisterActivity.this.finish();
         }

@@ -14,16 +14,16 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import cn.leancloud.AVObject;
+import cn.leancloud.LCObject;
 
 /**
  * Created by BinaryHB on 11/24/15.
  */
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder> {
   private Context mContext;
-  private List<AVObject> mList;
+  private List<LCObject> mList;
 
-  public MainRecyclerAdapter(List<AVObject> list, Context context) {
+  public MainRecyclerAdapter(List<LCObject> list, Context context) {
     this.mContext = context;
     this.mList = list;
   }
@@ -37,8 +37,8 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
   public void onBindViewHolder(MainViewHolder holder, final int position) {
     holder.mTitle.setText((CharSequence) mList.get(position).get("title"));
     holder.mPrice.setText(mList.get(position).get("price") == null ? "￥" : "￥ " + mList.get(position).get("price"));
-    holder.mName.setText(mList.get(position).getAVObject("owner") == null ? "" : mList.get(position).getAVObject("owner").getString("username"));
-    Picasso.with(mContext).load(mList.get(position).getAVFile("image") == null ? "www" : mList.get(position).getAVFile("image").getUrl()).transform(new RoundedTransformation(9, 0)).into(holder.mPicture);
+    holder.mName.setText(mList.get(position).getLCObject("owner") == null ? "" : mList.get(position).getLCObject("owner").getString("username"));
+    Picasso.with(mContext).load(mList.get(position).getLCFile("image") == null ? "www" : mList.get(position).getLCFile("image").getUrl()).transform(new RoundedTransformation(9, 0)).into(holder.mPicture);
     holder.mItem.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {

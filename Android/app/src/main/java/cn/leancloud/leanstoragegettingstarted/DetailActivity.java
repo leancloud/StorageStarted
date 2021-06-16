@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import cn.leancloud.AVObject;
+import cn.leancloud.LCObject;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -29,16 +29,16 @@ public class DetailActivity extends AppCompatActivity {
     mImage = (ImageView) findViewById(R.id.image_detail);
 
     String goodsObjectId = getIntent().getStringExtra("goodsObjectId");
-    AVObject avObject = AVObject.createWithoutData("Product", goodsObjectId);
-    avObject.fetchInBackground("owner").subscribe(new Observer<AVObject>() {
+    LCObject avObject = LCObject.createWithoutData("Product", goodsObjectId);
+    avObject.fetchInBackground("owner").subscribe(new Observer<LCObject>() {
       @Override
       public void onSubscribe(Disposable d) {
       }
       @Override
-      public void onNext(AVObject avObject) {
-        mName.setText(avObject.getAVObject("owner") == null ? "" : avObject.getAVObject("owner").getString("username"));
+      public void onNext(LCObject avObject) {
+        mName.setText(avObject.getLCObject("owner") == null ? "" : avObject.getLCObject("owner").getString("username"));
         mDescription.setText(avObject.getString("description"));
-        Picasso.with(DetailActivity.this).load(avObject.getAVFile("image") == null ? "www" : avObject.getAVFile("image").getUrl()).into(mImage);
+        Picasso.with(DetailActivity.this).load(avObject.getLCFile("image") == null ? "www" : avObject.getLCFile("image").getUrl()).into(mImage);
       }
       @Override
       public void onError(Throwable e) {
