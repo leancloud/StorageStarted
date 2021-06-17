@@ -4,6 +4,6 @@
 
 [查看 Android 文档](https://leancloud.cn/docs/leanstorage_guide-java.html)
 
-[查看 iOS 文档](https://leancloud.cn/docs/leanstorage-started-objc.html)
+[查看 iOS 文档](https://leancloud.cn/docs/leanstorage_guide-objc.html)
 
-[查看 JavaScript 文档](https://leancloud.cn/docs/leanstorage-started-js.html)
+[查看 JavaScript 文档](https://leancloud.cn/docs/leanstorage_guide-js.html)
