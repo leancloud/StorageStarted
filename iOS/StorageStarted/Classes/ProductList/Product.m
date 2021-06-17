@@ -7,14 +7,15 @@
 //
 
 #import "Product.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import <LCUser.h>
+#import <LCFile.h>
 @implementation Product
 +(instancetype)initWithObject:(NSDictionary *)obj{
     Product * product = [[Product alloc] init];
     product.objectId =[obj objectForKey:@"objectId"];
-    AVUser *owner =[obj objectForKey:@"owner"];
+    LCUser *owner =[obj objectForKey:@"owner"];
     product.name =owner.username;
-    AVFile *userAvatar =[owner objectForKey:@"avatar"];
+    LCFile *userAvatar =[owner objectForKey:@"avatar"];
     if (userAvatar) {
         product.avatarUrl = userAvatar.url;
     }
@@ -26,7 +27,7 @@
     product.price = [NSString stringWithFormat:@"%@",[obj objectForKey:@"price"]];
     product.title = [obj objectForKey:@"title"];
     
-    AVFile *file = [obj objectForKey:@"image"];
+    LCFile *file = [obj objectForKey:@"image"];
     product.productImageUrl = file.url;
 
     return product;

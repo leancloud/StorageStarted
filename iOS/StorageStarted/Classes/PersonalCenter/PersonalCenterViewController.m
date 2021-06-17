@@ -9,10 +9,14 @@
 #import "PersonalCenterViewController.h"
 #import "MyProductCell.h"
 #import "Product.h"
-#import <AVOSCloud/AVOSCloud.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UpdateMyProductController.h"
 #import "LCLoginViewController.h"
+
+#import <LCUser.h>
+#import <LCFile.h>
+#import <LCQuery.h>
+
 @interface PersonalCenterViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *userAvatarImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -37,17 +41,15 @@
     [super viewWillAppear:YES];
     //查询我发布的产品
     [self queryProduct];
-    [AVAnalytics beginLogPageView:@"PersonalCenter"];
 
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-    [AVAnalytics endLogPageView:@"PersonalCenter"];
 }
 //退出登录
 - (IBAction)logOutBtnClick:(id)sender {
 
-    [AVUser logOut];
+    [LCUser logOut];
     [UIApplication sharedApplication].keyWindow.rootViewController = [[LCLoginViewController  alloc]init];
 }
 //更换头像
@@ -90,8 +92,8 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     self.userAvatarImage.image =image;
     NSData * imageData = UIImagePNGRepresentation(image);
-    AVUser *currentuser = [AVUser currentUser];
-    AVFile *avatarFile = [AVFile fileWithData:imageData];
+    LCUser *currentuser = [LCUser currentUser];
+    LCFile *avatarFile = [LCFile fileWithData:imageData];
     [currentuser setObject:avatarFile forKey:@"avatar"];
     [currentuser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         [self alertMessage:@"头像上传成功"];
@@ -107,9 +109,9 @@
 #pragma mark -  Life Cycle
 -(void)queryProduct{
     // 查询我发布过的产品
-    AVUser *currentUser =[AVUser currentUser];
+    LCUser *currentUser =[LCUser currentUser];
     
-    AVQuery *query = [AVQuery queryWithClassName:@"Product"];
+    LCQuery *query = [LCQuery queryWithClassName:@"Product"];
     [query orderByDescending:@"updateAt"];
     // owner 为 Pointer，指向 _User 表
     [query includeKey:@"owner"];
@@ -131,9 +133,9 @@
     }];
 }
 -(void)setUserInfo{
-    AVUser *currentUser =[AVUser currentUser];
+    LCUser *currentUser =[LCUser currentUser];
     self.nameLabel.text = currentUser.username;
-    AVFile * avatarFile = [currentUser objectForKey:@"avatar"];
+    LCFile * avatarFile = [currentUser objectForKey:@"avatar"];
     if (avatarFile) {
         [self.userAvatarImage sd_setImageWithURL:[NSURL URLWithString:avatarFile.url]
                                 placeholderImage:[UIImage imageNamed:@"not_logged_in"]];

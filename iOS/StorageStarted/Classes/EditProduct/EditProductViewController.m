@@ -7,8 +7,9 @@
 //
 
 #import "EditProductViewController.h"
-#import <AVOSCloud/AVOSCloud.h>
-
+#import <LCObject.h>
+#import <LCUser.h>
+#import <LCFile.h>
 @interface EditProductViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *productitleText;
@@ -27,12 +28,10 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    [AVAnalytics beginLogPageView:@"EditProduct"];
     
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-    [AVAnalytics endLogPageView:@"EditProduct"];
 }
 #pragma mark -  Button Callbacks
 
@@ -49,15 +48,15 @@
 - (IBAction)publishBtn:(id)sender {
     NSString *title = self.productitleText.text;
     NSNumber *price = @(self.priceLabel.text.intValue);
-    AVObject *product = [AVObject objectWithClassName:@"Product"];
+    LCObject *product = [LCObject objectWithClassName:@"Product"];
     [product setObject:title forKey:@"title"];
     [product setObject:price forKey:@"price"];
 
     // owner 字段为 Pointer 类型，指向 _User 表
-    AVUser *currentUser = [AVUser currentUser];
+    LCUser *currentUser = [LCUser currentUser];
     [product setObject:currentUser forKey:@"owner"];
    
-    AVFile *file = [AVFile fileWithData:self.imageData];
+    LCFile *file = [LCFile fileWithData:self.imageData];
     [product setObject:file forKey:@"image"];
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

@@ -1,20 +1,28 @@
 PODS:
-  - AVOSCloud (12.3.0)
+  - LeanCloudObjc (13.0.0):
+    - LeanCloudObjc/Realtime (= 13.0.0)
+  - LeanCloudObjc/Foundation (13.0.0)
+  - "LeanCloudObjc/Protobuf+Protocol (13.0.0)"
+  - LeanCloudObjc/Realtime (13.0.0):
+    - LeanCloudObjc/Foundation (= 13.0.0)
+    - "LeanCloudObjc/Protobuf+Protocol (= 13.0.0)"
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+
 DEPENDENCIES:
-  - AVOSCloud (= 12.3.0)
-  - SDWebImage (4.4.2):
-    - SDWebImage/Core (= 4.4.2)
-  - SDWebImage/Core (4.4.2)
+  - LeanCloudObjc
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
-    - AVOSCloud
+    - LeanCloudObjc
     - SDWebImage
 
 SPEC CHECKSUMS:
-  AVOSCloud: bed104accc6fc53c3d16c3f52c8dfdff02251898
+  LeanCloudObjc: a896a7521061948c6b636567c466691e9c7abd05
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-  PODFILE CHECKSUM: 2aaf6f719f82031a4fdeb03f672c239904c59dde
-  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+PODFILE CHECKSUM: 176bb1ae50f6c972679c2a5ab037fedd157041b3
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

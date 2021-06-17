@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import <AVOSCloud/AVOSCloud.h>
 #import "LCLoginViewController.h"
+#import <LeanCloudObjc/Foundation.h>
 
 #define APP_ID @"OLoj899IwHYi787ClrImlr3k-gzGzoHsz"
 #define APP_KEY @"gkz35mRTqTE2aqwp7dEr5uEE"
+#define SERVER_URL @"https://oloj899i.lc-cn-n1-shared.com"
 
 @interface AppDelegate ()
 
@@ -23,9 +24,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     //初始化 SDK
-    [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
+    [LCApplication setApplicationId:APP_ID clientKey:APP_KEY serverURLString:SERVER_URL];
     //开启调试日志
-    [AVOSCloud setAllLogsEnabled:YES];
+    [LCApplication setAllLogsEnabled:YES];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[LCLoginViewController alloc]init];

@@ -9,7 +9,7 @@
 #import "ProductListViewController.h"
 #import "Product.h"
 #import "ProductListCell.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import <LCQuery.h>
 @interface ProductListViewController ()
 @property (nonatomic,strong) NSMutableArray <Product *> *productArr;
 @end
@@ -26,19 +26,17 @@
     [super viewWillAppear:YES];
     [self.productArr removeAllObjects];
     [self queryProduct];
-    [AVAnalytics beginLogPageView:@"ProductList"];
     
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-    [AVAnalytics endLogPageView:@"ProductList"];
 }
 
 #pragma mark -  Private Methods
 // LeanCloud - 查询 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash860317
 -(void)queryProduct{
     
-    AVQuery *query = [AVQuery queryWithClassName:@"Product"];
+    LCQuery *query = [LCQuery queryWithClassName:@"Product"];
     [query orderByDescending:@"createdAt"];
     // owner 为 Pointer，指向 _User 表
     [query includeKey:@"owner"];
