@@ -8,7 +8,7 @@
 
 #import "LCLoginViewController.h"
 #import "LCTabBarController.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import <LCUser.h>
 @interface LCLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -25,12 +25,10 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    [AVAnalytics beginLogPageView:@"LoginView"];
     
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-    [AVAnalytics endLogPageView:@"LoginView"];
 }
 // LeanCloud - 登录 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash964666
 - (IBAction)LoginBtnClick:(id)sender {
@@ -38,7 +36,7 @@
     NSString *username = self.userNameTextField.text;
     NSString *password = self.passwordTextField.text;
     if (username && password) {
-        [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
+        [LCUser logInWithUsernameInBackground:username password:password block:^(LCUser *user, NSError *error){
            if (user) {
             [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc]init];
             } else {
@@ -51,14 +49,14 @@
 // LeanCloud - 注册 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash885156
 - (IBAction)SignUpBtnClick:(id)sender {
     
-    AVUser *user = [AVUser user];
+    LCUser *user = [LCUser user];
     user.username = self.userNameTextField.text;
     user.password = self.passwordTextField.text;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             // 注册成功直接登录
-            [AVUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passwordTextField.text block:^(AVUser *user, NSError *error){
+            [LCUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passwordTextField.text block:^(LCUser *user, NSError *error){
                 if (user) {
                     [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc]init];
                 } else {

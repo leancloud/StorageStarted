@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E37130F1C80C972DC95E008 /* libPods-StorageStarted.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */; };
+		1400D5835EC93A781ED75F2D /* Pods_StorageStarted_StorageStartedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610896C063A5AE0EEE1890C7 /* Pods_StorageStarted_StorageStartedUITests.framework */; };
 		6693DE521D8933A400A80A29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6693DE511D8933A400A80A29 /* main.m */; };
 		6693DE551D8933A400A80A29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6693DE541D8933A400A80A29 /* AppDelegate.m */; };
 		6693DE5D1D8933A500A80A29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6693DE5C1D8933A400A80A29 /* Assets.xcassets */; };
@@ -31,6 +31,8 @@
 		94A1B72C2105C5D40098C27A /* PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A1B72A2105C5D40098C27A /* PersonalCenterViewController.xib */; };
 		94CD9794210859C600A5901C /* UpdateMyProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CD9791210859C600A5901C /* UpdateMyProductController.m */; };
 		94CD9795210859C600A5901C /* UpdateMyProductController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CD9792210859C600A5901C /* UpdateMyProductController.xib */; };
+		A4B6321F9BB48132415E19BC /* Pods_StorageStartedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F42AF668F889E0763E0384 /* Pods_StorageStartedTests.framework */; };
+		CE3364D94E44A390B338D2C9 /* Pods_StorageStarted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECB1AE10AFC5C6821F4ACF2 /* Pods_StorageStarted.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		1592C44765D73236E856B5FF /* Pods-StorageStarted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageStarted.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorageStarted/Pods-StorageStarted.debug.xcconfig"; sourceTree = "<group>"; };
+		3AFBCFA1760433256A9BFDEF /* Pods-StorageStarted-StorageStartedUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageStarted-StorageStartedUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorageStarted-StorageStartedUITests/Pods-StorageStarted-StorageStartedUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5F775BB3FE70ED88BE08A6CA /* Pods-StorageStartedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageStartedTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorageStartedTests/Pods-StorageStartedTests.debug.xcconfig"; sourceTree = "<group>"; };
+		610896C063A5AE0EEE1890C7 /* Pods_StorageStarted_StorageStartedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageStarted_StorageStartedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6693DE4D1D8933A400A80A29 /* StorageStarted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorageStarted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6693DE511D8933A400A80A29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6693DE531D8933A400A80A29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,7 +99,10 @@
 		94CD9791210859C600A5901C /* UpdateMyProductController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMyProductController.m; sourceTree = "<group>"; };
 		94CD9792210859C600A5901C /* UpdateMyProductController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateMyProductController.xib; sourceTree = "<group>"; };
 		94CD9793210859C600A5901C /* UpdateMyProductController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateMyProductController.h; sourceTree = "<group>"; };
-		BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorageStarted.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F42AF668F889E0763E0384 /* Pods_StorageStartedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageStartedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B52024A572825CA108213B98 /* Pods-StorageStartedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageStartedTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorageStartedTests/Pods-StorageStartedTests.release.xcconfig"; sourceTree = "<group>"; };
+		BECB1AE10AFC5C6821F4ACF2 /* Pods_StorageStarted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageStarted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E25A5DB2343A665AFECB6343 /* Pods-StorageStarted-StorageStartedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageStarted-StorageStartedUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorageStarted-StorageStartedUITests/Pods-StorageStarted-StorageStartedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E37130F1C80C972DC95E008 /* libPods-StorageStarted.a in Frameworks */,
+				CE3364D94E44A390B338D2C9 /* Pods_StorageStarted.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B6321F9BB48132415E19BC /* Pods_StorageStartedTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1400D5835EC93A781ED75F2D /* Pods_StorageStarted_StorageStartedUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +275,10 @@
 			children = (
 				1592C44765D73236E856B5FF /* Pods-StorageStarted.debug.xcconfig */,
 				85BA62B0F32D2D7079DAA59B /* Pods-StorageStarted.release.xcconfig */,
+				E25A5DB2343A665AFECB6343 /* Pods-StorageStarted-StorageStartedUITests.debug.xcconfig */,
+				3AFBCFA1760433256A9BFDEF /* Pods-StorageStarted-StorageStartedUITests.release.xcconfig */,
+				5F775BB3FE70ED88BE08A6CA /* Pods-StorageStartedTests.debug.xcconfig */,
+				B52024A572825CA108213B98 /* Pods-StorageStartedTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -272,7 +286,9 @@
 		FB8A828530581D060D81409A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */,
+				BECB1AE10AFC5C6821F4ACF2 /* Pods_StorageStarted.framework */,
+				610896C063A5AE0EEE1890C7 /* Pods_StorageStarted_StorageStartedUITests.framework */,
+				B4F42AF668F889E0763E0384 /* Pods_StorageStartedTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -288,7 +304,7 @@
 				6693DE491D8933A400A80A29 /* Sources */,
 				6693DE4A1D8933A400A80A29 /* Frameworks */,
 				6693DE4B1D8933A400A80A29 /* Resources */,
-				A3095458B48DF81DAE50C7C7 /* [CP] Copy Pods Resources */,
+				4BD03E36E6825B2BFDA78F61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +319,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6693DE7D1D8933A500A80A29 /* Build configuration list for PBXNativeTarget "StorageStartedTests" */;
 			buildPhases = (
+				3BB538FD3C97976896CA12A9 /* [CP] Check Pods Manifest.lock */,
 				6693DE621D8933A500A80A29 /* Sources */,
 				6693DE631D8933A500A80A29 /* Frameworks */,
 				6693DE641D8933A500A80A29 /* Resources */,
@@ -321,9 +338,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6693DE801D8933A500A80A29 /* Build configuration list for PBXNativeTarget "StorageStartedUITests" */;
 			buildPhases = (
+				46344EC05E81CC96F9E52C15 /* [CP] Check Pods Manifest.lock */,
 				6693DE6D1D8933A500A80A29 /* Sources */,
 				6693DE6E1D8933A500A80A29 /* Frameworks */,
 				6693DE6F1D8933A500A80A29 /* Resources */,
+				FAFA9CC4FC8B403BDA8D7679 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,22 +430,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A3095458B48DF81DAE50C7C7 /* [CP] Copy Pods Resources */ = {
+		3BB538FD3C97976896CA12A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StorageStartedTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46344EC05E81CC96F9E52C15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StorageStarted-StorageStartedUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BD03E36E6825B2BFDA78F61 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-resources.sh",
-				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
+				"${PODS_ROOT}/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LeanCloudObjc/LeanCloudObjc.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVOSCloud_Art.inc",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LeanCloudObjc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorageStarted/Pods-StorageStarted-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CFF6B09444DF7C5C02ECA5A6 /* [CP] Check Pods Manifest.lock */ = {
@@ -445,6 +510,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAFA9CC4FC8B403BDA8D7679 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StorageStarted-StorageStartedUITests/Pods-StorageStarted-StorageStartedUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LeanCloudObjc/LeanCloudObjc.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LeanCloudObjc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorageStarted-StorageStartedUITests/Pods-StorageStarted-StorageStartedUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -625,6 +710,7 @@
 		};
 		6693DE7E1D8933A500A80A29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F775BB3FE70ED88BE08A6CA /* Pods-StorageStartedTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = StorageStartedTests/Info.plist;
@@ -637,6 +723,7 @@
 		};
 		6693DE7F1D8933A500A80A29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B52024A572825CA108213B98 /* Pods-StorageStartedTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = StorageStartedTests/Info.plist;
@@ -649,6 +736,7 @@
 		};
 		6693DE811D8933A500A80A29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E25A5DB2343A665AFECB6343 /* Pods-StorageStarted-StorageStartedUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = StorageStartedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -660,6 +748,7 @@
 		};
 		6693DE821D8933A500A80A29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AFBCFA1760433256A9BFDEF /* Pods-StorageStarted-StorageStartedUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = StorageStartedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

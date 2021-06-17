@@ -7,9 +7,9 @@
 //
 
 #import "UpdateMyProductController.h"
-#import <AVOSCloud/AVOSCloud.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import <LCObject.h>
+#import <LCFile.h>
 @interface UpdateMyProductController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *productitleText;
@@ -32,12 +32,10 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    [AVAnalytics beginLogPageView:@"UpdateMyProduct"];
     
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-    [AVAnalytics endLogPageView:@"UpdateMyProduct"];
 }
 #pragma mark -  Button Callbacks
 
@@ -58,12 +56,12 @@
     NSString *title = self.productitleText.text;
     NSNumber *price = @(self.priceLabel.text.intValue);
     //根据 objectId 更新对象
-    AVObject *product =[AVObject objectWithClassName:@"Product" objectId:self.product.objectId];
+    LCObject *product =[LCObject objectWithClassName:@"Product" objectId:self.product.objectId];
     
     [product setObject:title forKey:@"title"];
     [product setObject:price forKey:@"price"];
     if (self.imageData) {
-        AVFile *file = [AVFile fileWithData:self.imageData];
+        LCFile *file = [LCFile fileWithData:self.imageData];
         [product setObject:file forKey:@"image"];
     }
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
